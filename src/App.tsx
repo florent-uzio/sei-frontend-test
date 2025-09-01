@@ -43,7 +43,10 @@ function App() {
     const url = `https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=${selectedCurrency}&ids=sei-network`
     const options = {
       method: "GET",
-      headers: { accept: "application/json", "x-cg-pro-api-key": "CG-14z8KdXsNvQ6vkSpKG7YtDAv" },
+      headers: {
+        accept: "application/json",
+        "x-cg-pro-api-key": import.meta.env.VITE_COINGECKO_API_KEY,
+      },
     }
     fetch(url, options)
       .then((res) => res.json())
